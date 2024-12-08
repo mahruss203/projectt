@@ -1,0 +1,1451 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Optimalisasi Layanan Kesehatan dengan Prediksi Jumlah Pengunjung Pasien di RSUD Cengkareng Jakarta &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analisis Bisnis untuk Memprediksi Tren Penjualan Mobil" href="p2.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Optimalisasi Layanan Kesehatan dengan Prediksi Jumlah Pengunjung Pasien di RSUD Cengkareng Jakarta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2.html">Analisis Bisnis untuk Memprediksi Tren Penjualan Mobil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p3.html">Prediksi Harga Penutupan Saham PT Sidomuncul Menggunakan Model Pembelajaran Mesin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fp1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/p1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Optimalisasi Layanan Kesehatan dengan Prediksi Jumlah Pengunjung Pasien di RSUD Cengkareng Jakarta</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-bisnis">1.  Memahami Bisnis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.1. tujuan Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permasalahan-analisis-bisnis">1.2. Permasalahan Analisis bisnis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-data">2.  Memahami Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-data">2.1. Deskripsi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data">2.2. Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-data">2.3 Mengambil Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data">3. Processing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">3.1 Normalisasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">3.2 sliding windows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">4. Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svr">4.1 SVR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-ensemble-bagging">4.1.  Metode ensemble bagging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-prediksi-single-step">4.3. Melakukan Prediksi Single Step</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">5. evaluasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy">6. deploy</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="optimalisasi-layanan-kesehatan-dengan-prediksi-jumlah-pengunjung-pasien-di-rsud-cengkareng-jakarta">
+<h1>Optimalisasi Layanan Kesehatan dengan Prediksi Jumlah Pengunjung Pasien di RSUD Cengkareng Jakarta<a class="headerlink" href="#optimalisasi-layanan-kesehatan-dengan-prediksi-jumlah-pengunjung-pasien-di-rsud-cengkareng-jakarta" title="Link to this heading">#</a></h1>
+<section id="memahami-bisnis">
+<h2>1.  Memahami Bisnis<a class="headerlink" href="#memahami-bisnis" title="Link to this heading">#</a></h2>
+<p>Industri layanan kesehatan, khususnya rumah sakit, menghadapi tantangan besar dalam menghadapi peningkatan jumlah pasien dan tuntutan terhadap kualitas layanan yang semakin tinggi. Dalam beberapa tahun terakhir, permintaan terhadap layanan kesehatan terus berkembang seiring dengan pertumbuhan populasi, peningkatan kesadaran akan kesehatan, serta faktor demografi yang berubah. Namun, fluktuasi jumlah pengunjung pasien yang tidak terduga dapat membebani sistem rumah sakit dan mempengaruhi kualitas layanan. Oleh karena itu, prediksi jumlah pengunjung pasien menjadi hal yang sangat penting untuk mengoptimalkan manajemen sumber daya dan meningkatkan kualitas layanan rumah sakit.</p>
+<p>Visi rumah sakit kami adalah menjadi penyedia layanan kesehatan terkemuka yang mampu memanfaatkan teknologi analitik untuk meningkatkan efisiensi operasional dan kualitas pelayanan kesehatan. Untuk mencapai visi tersebut, misi kami adalah mengembangkan dan memanfaatkan sistem prediksi berbasis data untuk meramalkan jumlah pengunjung pasien secara lebih akurat, menyediakan solusi analitik yang dapat membantu manajemen rumah sakit dalam pengambilan keputusan yang lebih efektif, serta meningkatkan pemahaman terhadap pola kunjungan pasien untuk mendukung pengelolaan sumber daya yang lebih efisien.</p>
+<p>Strategi bisnis yang kami terapkan fokus pada pemanfaatan teknologi untuk memahami pola kunjungan pasien dan kebutuhan layanan kesehatan. Dengan menggunakan analisis data yang mendalam, rumah sakit kami dapat merencanakan penjadwalan tenaga medis, alokasi ruang perawatan, serta pengelolaan obat dan fasilitas lainnya dengan lebih efisien.</p>
+<section id="tujuan-analisis">
+<h3>1.1. tujuan Analisis<a class="headerlink" href="#tujuan-analisis" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Meningkatkan Akurasi Prediksi: Menggunakan algoritma machine learning untuk memprediksi jumlah pengunjung pasien rumah sakit dengan lebih akurat.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Optimalkan Model: Mengembangkan model prediksi yang terus belajar dan beradaptasi dengan perubahan pola kunjungan pasien.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Pengelolaan Sumber Daya Rumah Sakit: Membantu merencanakan alokasi tenaga medis, ruang perawatan, dan fasilitas lainnya berdasarkan prediksi jumlah pengunjung pasien.</p></li>
+</ul>
+</section>
+<section id="permasalahan-analisis-bisnis">
+<h3>1.2. Permasalahan Analisis bisnis<a class="headerlink" href="#permasalahan-analisis-bisnis" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Melakukan Analisis Tren Pengunjung Pasien Menggunakan metode machine learning untuk memprediksi pola kunjungan pasien yang lebih akurat.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Menentukan Algoritma Machine Learning Terbaik: Mencari dan memilih algoritma machine learning yang paling efektif untuk memprediksi jumlah pengunjung pasien dengan akurasi tinggi.</p></li>
+</ul>
+</section>
+</section>
+<section id="memahami-data">
+<h2>2.  Memahami Data<a class="headerlink" href="#memahami-data" title="Link to this heading">#</a></h2>
+<section id="deskripsi-data">
+<h3>2.1. Deskripsi Data<a class="headerlink" href="#deskripsi-data" title="Link to this heading">#</a></h3>
+<p>Dataset yang saya gunakan merupakan data time series bulanan yang mencatat Pasien RSUD Cengkareng, Jakarta dari tahun 2011 hingga 2024. Data ini terdiri dari 168 record, dengan dua fitur utama, yaitu ‘periode’ yang menunjukkan bulan dan tahun, serta ‘jumlah ‘ yang mencatat jumlah pengunjung yang datang setiap bulan. Dataset ini diperoleh dari situs web :</p>
+<p><a class="reference external" href="https://dashboard-dinkes.jakarta.go.id/rsud">https://dashboard-dinkes.jakarta.go.id/rsud</a></p>
+</section>
+<section id="tipe-data">
+<h3>2.2. Tipe Data<a class="headerlink" href="#tipe-data" title="Link to this heading">#</a></h3>
+<p>Dataset yang saya gunakan terdiri dari dua fitur, yaitu ‘periode’ dan ‘jumlah pengunjung’:</p>
+<ul class="simple">
+<li><p>Periode: Fitur ini memiliki tipe data string atau datetime yang mencatat bulan dan tahun kunjungan pasien ke rumah sakit, misalnya ‘Jan 2010’ atau ‘Feb 2024’. Tipe data ini merepresentasikan waktu dalam format yang mudah dibaca dan diolah untuk analisis temporal.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Jumlah Pengunjung: Fitur ini memiliki tipe data integer atau float yang mencatat jumlah pasien yang berkunjung ke rumah sakit pada setiap bulan. Tipe data ini digunakan untuk menyimpan nilai numerik yang dapat dianalisis secara kuantitatif, seperti prediksi jumlah pengunjung atau evaluasi tren kunjungan pasien.</p></li>
+</ul>
+</section>
+<section id="mengambil-data">
+<h3>2.3 Mengambil Data<a class="headerlink" href="#mengambil-data" title="Link to this heading">#</a></h3>
+<p>Untuk mengambil data dari file CSV, kita dapat menggunakan library pandas. Pandas menyediakan fungsi read_csv() yang memungkinkan kita untuk membaca file CSV dan mengubahnya menjadi DataFrame, yang memudahkan kita untuk mengelola dan menganalisis data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Ganti &#39;jumlah_kunjungan.csv&#39; dengan path ke file CSV kamu</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;project1.csv&#39;</span>
+
+<span class="c1"># Membaca file CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-d634ee5013da&gt;</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Membaca file CSV</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Menampilkan DataFrame</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
+<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1028</span> 
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">618</span> 
+<span class="g g-Whitespace">    </span><span class="mi">619</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">621</span> 
+<span class="g g-Whitespace">    </span><span class="mi">622</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1618</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1619</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1621</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1622</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>                 <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>                     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>                 <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>                 <span class="n">mode</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>             <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>             <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>                 <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>                 <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;project1.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Ganti &#39;project1.csv&#39; dengan path ke file CSV Anda</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;project1.csv&#39;</span>
+
+<span class="c1"># Membaca file CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># Memilih hanya kolom numerik</span>
+<span class="n">numerical_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">])</span>
+
+<span class="c1"># Mencari nilai minimum dan maksimum untuk setiap kolom numerik</span>
+<span class="n">min_values</span> <span class="o">=</span> <span class="n">numerical_cols</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">max_values</span> <span class="o">=</span> <span class="n">numerical_cols</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="c1"># Menampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nilai Minimum:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Nilai Maksimum:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nilai Minimum:
+jumlah    9295
+dtype: int64
+
+Nilai Maksimum:
+jumlah    30405
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="processing-data">
+<h2>3. Processing Data<a class="headerlink" href="#processing-data" title="Link to this heading">#</a></h2>
+<p>Tujuan dari proses pengolahan data (data processing) adalah untuk menyiapkan data dalam bentuk yang dapat digunakan untuk analisis atau pembuatan model prediksi. Proses ini mencakup berbagai langkah yang bertujuan untuk memastikan data yang digunakan memiliki kualitas yang baik, relevan, dan siap digunakan. Pada data yang saya gunakan tidak terdapat missing value sehingga saya hanya melakukan Normalisasi data dan Sliding windows</p>
+<section id="normalisasi-data">
+<h3>3.1 Normalisasi Data<a class="headerlink" href="#normalisasi-data" title="Link to this heading">#</a></h3>
+<p>Untuk memastikan bahwa data yang digunakan dalam model prediksi berada dalam skala yang sama, kita dapat melakukan normalisasi menggunakan teknik MinMaxScaler. Teknik ini mengubah nilai-nilai dalam fitur menjadi rentang antara 0 dan 1, yang membantu meningkatkan kinerja model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+
+<span class="c1"># Ganti &#39;datamobil.csv&#39; dengan path ke file CSV kamu</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;project1.csv&#39;</span>
+
+<span class="c1"># Membaca file CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan DataFrame awal</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Awal:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Inisialisasi MinMaxScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+
+<span class="c1"># Melakukan normalisasi pada semua kolom numerik</span>
+<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Hanya kolom numerik yang akan dinormalisasi</span>
+<span class="n">numerical_cols</span> <span class="o">=</span> <span class="n">df_normalized</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Normalisasi kolom numerik</span>
+<span class="n">df_normalized</span><span class="p">[</span><span class="n">numerical_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_normalized</span><span class="p">[</span><span class="n">numerical_cols</span><span class="p">])</span>
+
+<span class="c1"># Menampilkan DataFrame setelah normalisasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data Setelah Normalisasi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_normalized</span><span class="p">)</span>
+
+<span class="c1"># Menyimpan DataFrame yang telah dinormalisasi ke file CSV</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;normalisasi_p1.csv&#39;</span>  <span class="c1"># Ganti dengan nama file output yang diinginkan</span>
+<span class="n">df_normalized</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data telah disimpan ke </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data Awal:
+     periode  jumlah
+0    2011-01   11744
+1    2011-02   11315
+2    2011-03   13596
+3    2011-04   12888
+4    2011-05   12754
+..       ...     ...
+162  2024-07   28531
+163  2024-08   29153
+164  2024-09   27663
+165  2024-10   30405
+166  2024-11   28691
+
+[167 rows x 2 columns]
+Data Setelah Normalisasi:
+     periode    jumlah
+0    2011-01  0.116011
+1    2011-02  0.095689
+2    2011-03  0.203742
+3    2011-04  0.170204
+4    2011-05  0.163856
+..       ...       ...
+162  2024-07  0.911227
+163  2024-08  0.940692
+164  2024-09  0.870109
+165  2024-10  1.000000
+166  2024-11  0.918806
+
+[167 rows x 2 columns]
+Data telah disimpan ke normalisasi_p1.csv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sliding-windows">
+<h3>3.2 sliding windows<a class="headerlink" href="#sliding-windows" title="Link to this heading">#</a></h3>
+<p>Teknik ini digunakan untuk memecah data menjadi bagian-bagian yang lebih kecil (window) dengan ukuran tetap untuk analisis atau model prediksi, terutama dalam konteks data berurutan seperti sinyal, teks, atau time series. dalam code saya gunakan windows = 4</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># 1. Memuat data dari CSV</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;normalisasi_p1.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Membuat DataFrame untuk sliding window</span>
+<span class="n">df_slide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">])</span>
+
+<span class="c1"># 3. Menambahkan kolom untuk sliding window</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Nilai 4 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Nilai 3 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Nilai 2 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Nilai 1 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span>  <span class="c1"># Nilai saat ini</span>
+
+<span class="c1"># 4. Menghapus baris yang memiliki NaN</span>
+<span class="n">df_slide</span> <span class="o">=</span> <span class="n">df_slide</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># 5. Menghapus kolom &#39;jumlah&#39; karena tidak diperlukan lagi</span>
+<span class="n">df_slide</span> <span class="o">=</span> <span class="n">df_slide</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">])</span>
+
+<span class="c1"># 6. Menyimpan data sliding ke file CSV</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;dataslide_p1.csv&#39;</span>
+<span class="n">df_slide</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># 7. Menampilkan pesan sukses</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data sliding telah disimpan ke file &#39;</span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan DataFrame untuk verifikasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_slide</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data sliding telah disimpan ke file &#39;dataslide_p1.csv&#39;.
+         xt-4      xt-3      xt-2      xt-1        xt
+4    0.116011  0.095689  0.203742  0.170204  0.163856
+5    0.095689  0.203742  0.170204  0.163856  0.162624
+6    0.203742  0.170204  0.163856  0.162624  0.222549
+7    0.170204  0.163856  0.162624  0.222549  0.147181
+8    0.163856  0.162624  0.222549  0.147181  0.203126
+..        ...       ...       ...       ...       ...
+162  0.802795  0.765988  0.881999  0.763619  0.911227
+163  0.765988  0.881999  0.763619  0.911227  0.940692
+164  0.881999  0.763619  0.911227  0.940692  0.870109
+165  0.763619  0.911227  0.940692  0.870109  1.000000
+166  0.911227  0.940692  0.870109  1.000000  0.918806
+
+[163 rows x 5 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="modelling">
+<h2>4. Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h2>
+<p>pemilihan model yang tepat dalam prediksi penjualan mobil adalah kunci untuk menghasilkan hasil yang akurat, karena setiap model memiliki keunggulan dan kelemahan tergantung pada jenis data dan tujuan analisis. Pemilihan model yang salah bisa menyebabkan prediksi yang kurang tepat, yang pada gilirannya dapat merugikan proses pengambilan keputusan. sebelum melakakukan modelling bagi data menjadi data train dan tes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># 1. Memuat data dari CSV</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;normalisasi_p1.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Membuat DataFrame untuk sliding window</span>
+<span class="n">df_slide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">])</span>
+
+<span class="c1"># 3. Menambahkan kolom untuk sliding window</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Nilai 4 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Nilai 3 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Nilai 2 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt-1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Nilai 1 langkah ke depan</span>
+<span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">]</span>  <span class="c1"># Nilai saat ini</span>
+
+<span class="c1"># 4. Menghapus baris yang memiliki NaN</span>
+<span class="n">df_slide</span> <span class="o">=</span> <span class="n">df_slide</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># 5. Menghapus kolom &#39;jumlah&#39; karena tidak diperlukan lagi</span>
+<span class="n">df_slide</span> <span class="o">=</span> <span class="n">df_slide</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jumlah&#39;</span><span class="p">])</span>
+
+<span class="c1"># 6. Memisahkan fitur dan target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>  <span class="c1"># Fitur (input)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_slide</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>  <span class="c1"># Target (output)</span>
+
+<span class="c1"># 7. Memisahkan data menjadi train dan test (80% train, 20% test)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 8. Menggabungkan kembali fitur dan target untuk setiap set</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 9. Menyimpan data train dan test ke file CSV</span>
+<span class="n">train_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;train_p1.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">test_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;test_p1.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="svr">
+<h3>4.1 SVR<a class="headerlink" href="#svr" title="Link to this heading">#</a></h3>
+<p>Support Vector Regression (SVR) adalah metode regresi yang menggunakan prinsip dari Support Vector Machine (SVM) yang umumnya digunakan untuk klasifikasi. Dalam SVR, tujuannya adalah untuk memprediksi nilai kontinu berdasarkan data yang diberikan. SVR berusaha menemukan hyperplane yang meminimalkan error dalam prediksi, dengan mempertimbangkan margin toleransi yang ditentukan oleh parameter epsilon</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="c1"># 1. Memuat data train dan test</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train_p1.csv&#39;</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test_p1.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Memisahkan fitur dan target</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>
+
+<span class="c1"># 3. Membuat dan melatih model SVR</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>  <span class="c1"># Menggunakan kernel RBF</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># 4. Melakukan prediksi</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 5. Menghitung metrik evaluasi</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>  <span class="c1"># Root Mean Squared Error</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  <span class="c1"># Mean Absolute Percentage Error</span>
+
+<span class="c1"># 6. Menampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">mape</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>  <span class="c1"># Dalam persen</span>
+
+<span class="c1"># 7. Menampilkan hasil prediksi dan actual values</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Actual&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE: 0.06943914555165315
+MAPE: 8.64%
+      Actual  Predicted
+0   0.659498   0.612109
+1   0.257603   0.250332
+2   0.430365   0.538212
+3   0.672809   0.650612
+4   0.758693   0.771711
+5   0.717764   0.615427
+6   0.881999   0.806003
+7   0.700711   0.526744
+8   0.745760   0.690321
+9   0.708337   0.662494
+10  0.495642   0.519165
+11  0.792421   0.861971
+12  0.326622   0.341108
+13  0.897016   0.871313
+14  0.710327   0.704904
+15  0.627617   0.662308
+16  0.432307   0.478988
+17  0.686452   0.647206
+18  0.786784   0.831193
+19  0.392658   0.333431
+20  0.930744   0.801529
+21  0.495642   0.469628
+22  0.365040   0.339625
+23  0.342539   0.288217
+24  0.722359   0.651272
+25  0.802795   0.840388
+26  0.795168   0.669045
+27  0.769683   0.680752
+28  0.602842   0.584598
+29  0.940692   0.828604
+30  0.716959   0.620412
+31  0.875841   0.869513
+32  0.829938   0.881285
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hasil prediksi menggunakan SVR (Support Vector Regression) menggunkan kernel rbf dan epsilon = 0.1 menunjukkan nilai RMSE sebesar 0.0694 dan MAPE sebesar 8.64%</p>
+</section>
+<section id="metode-ensemble-bagging">
+<h3>4.1.  Metode ensemble bagging<a class="headerlink" href="#metode-ensemble-bagging" title="Link to this heading">#</a></h3>
+<p>Metode ini digunakan untuk mengurangi variansi model dengan membangun banyak model pada subset acak dari data pelatihan, kemudian menggabungkan hasil prediksi dari model-model tersebut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="c1"># 1. Memuat data train dan test</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train_p1.csv&#39;</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test_p1.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Memisahkan fitur dan target</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>
+
+<span class="c1"># 3. Membuat dan melatih model Regresi Linier dengan Bagging</span>
+<span class="n">linear_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>  <span class="c1"># Model Linear Regression</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BaggingRegressor</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">linear_reg</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># 10 estimator Linear Regression</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># 4. Melakukan prediksi</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 5. Menghitung metrik evaluasi</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>  <span class="c1"># Root Mean Squared Error</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  <span class="c1"># Mean Absolute Percentage Error</span>
+
+<span class="c1"># 6. Menampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">mape</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>  <span class="c1"># Dalam persen</span>
+
+<span class="c1"># 7. Menampilkan hasil prediksi dan actual values</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Actual&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE: 0.06775954569756913
+MAPE: 7.52%
+      Actual  Predicted
+0   0.659498   0.580500
+1   0.257603   0.273045
+2   0.430365   0.452826
+3   0.672809   0.704526
+4   0.758693   0.790144
+5   0.717764   0.657664
+6   0.881999   0.775276
+7   0.700711   0.533061
+8   0.745760   0.700439
+9   0.708337   0.735192
+10  0.495642   0.487976
+11  0.792421   0.831082
+12  0.326622   0.346794
+13  0.897016   0.871129
+14  0.710327   0.728373
+15  0.627617   0.694655
+16  0.432307   0.447961
+17  0.686452   0.663019
+18  0.786784   0.798506
+19  0.392658   0.347585
+20  0.930744   0.757552
+21  0.495642   0.454565
+22  0.365040   0.351965
+23  0.342539   0.323770
+24  0.722359   0.651538
+25  0.802795   0.827114
+26  0.795168   0.638477
+27  0.769683   0.683218
+28  0.602842   0.534520
+29  0.940692   0.853915
+30  0.716959   0.676068
+31  0.875841   0.866606
+32  0.829938   0.879361
+</pre></div>
+</div>
+</div>
+</div>
+<p>untuk hasil prediksi menggunakan model ensemble bagging dengan regresi linier dan estimator = 100 menunjukkan kinerja yang cukup baik. Nilai RMSE sebesar 0.0677 menandakan bahwa kesalahan prediksi model relatif kecil, sementara MAPE sebesar 7.52% menunjukkan bahwa rata-rata kesalahan prediksi sekitar 7.52% dari nilai sebenarnya. Secara keseluruhan, model ini sudah cukup akurat dan dapat diandalkan, meskipun masih ada kemungkinan untuk meningkatkan akurasi lebih lanjut.</p>
+</section>
+<section id="melakukan-prediksi-single-step">
+<h3>4.3. Melakukan Prediksi Single Step<a class="headerlink" href="#melakukan-prediksi-single-step" title="Link to this heading">#</a></h3>
+<p>Dikarenakan hasil dari model ensemble bagging lebih rendah, saya memutuskan untuk menggunakan metode ensemble bagging untuk prediksi single step</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 1. Memuat data train dan test</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train_p1.csv&#39;</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test_p1.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Memisahkan fitur (X) dan target (y) untuk data latih dan uji</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>  <span class="c1"># Fitur untuk data latih</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>  <span class="c1"># Target untuk data latih</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>  <span class="c1"># Fitur untuk data uji</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>  <span class="c1"># Target untuk data uji</span>
+
+<span class="c1"># 3. Membuat model Bagging dengan Linear Regression sebagai estimator</span>
+<span class="n">base_model_lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">bagging_model_lr</span> <span class="o">=</span> <span class="n">BaggingRegressor</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">base_model_lr</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 4. Melatih model dengan data latih</span>
+<span class="n">bagging_model_lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># 5. Memprediksi data uji</span>
+<span class="n">y_pred_lr</span> <span class="o">=</span> <span class="n">bagging_model_lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 6. Evaluasi model</span>
+<span class="n">mse_lr</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_lr</span><span class="p">)</span>
+<span class="n">r2_lr</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_lr</span><span class="p">)</span>
+<span class="n">mape_lr</span> <span class="o">=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred_lr</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># 7. Menampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Linear Regression - MSE: </span><span class="si">{</span><span class="n">mse_lr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R2 Score: </span><span class="si">{</span><span class="n">r2_lr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, MAPE: </span><span class="si">{</span><span class="n">mape_lr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># 8. Menampilkan prediksi data uji</span>
+<span class="n">output_predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Actual&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span>
+    <span class="s1">&#39;Predicted_LR&#39;</span><span class="p">:</span> <span class="n">y_pred_lr</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi Data Uji:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output_predictions</span><span class="p">)</span>
+
+<span class="c1"># 9. Prediksi single step bulan selanjutnya</span>
+<span class="c1"># Inputan yang diberikan: xt-4, xt-3, xt-2, xt-1</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.7338254626352513</span><span class="p">,</span> <span class="mf">0.714743654565679</span><span class="p">,</span> <span class="mf">0.8782283345130953</span><span class="p">,</span> <span class="mf">0.7461725149155627</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Prediksi bulan selanjutnya menggunakan model</span>
+<span class="n">next_prediction</span> <span class="o">=</span> <span class="n">bagging_model_lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Menyiapkan data baru untuk prediksi berikutnya</span>
+<span class="n">new_row</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;xt-4&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># xt-4</span>
+    <span class="s1">&#39;xt-3&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># xt-3</span>
+    <span class="s1">&#39;xt-2&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>  <span class="c1"># xt-2</span>
+    <span class="s1">&#39;xt-1&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span>  <span class="c1"># xt-1</span>
+    <span class="s1">&#39;xt&#39;</span><span class="p">:</span> <span class="n">next_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># Prediksi menjadi xt</span>
+<span class="p">}</span>
+
+<span class="c1"># Menampilkan data baru untuk prediksi bulan berikutnya</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data baru yang disiapkan untuk bulan berikutnya:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_row</span><span class="p">]))</span>
+
+<span class="c1"># Nilai minimum dan maksimum untuk unnormalisasi</span>
+<span class="n">x_min</span> <span class="o">=</span> <span class="mi">9295</span>  <span class="c1"># Contoh: nilai minimum dari data asli</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">30405</span>  <span class="c1"># Contoh: nilai maksimum dari data asli</span>
+   
+<span class="c1"># Unnormalisasi hasil prediksi</span>
+<span class="n">unnormalized_next_prediction</span> <span class="o">=</span> <span class="n">next_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">+</span> <span class="n">x_min</span>
+
+<span class="c1"># Membulatkan hasil ke bilangan bulat</span>
+<span class="n">unnormalized_next_prediction</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">unnormalized_next_prediction</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil prediksi unnormalisasi sebagai bilangan bulat</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi bulan berikutnya (unnormalisasi):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unnormalized_next_prediction</span><span class="si">}</span><span class="s2"> pasien&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linear Regression - MSE: 0.00, R2 Score: 0.87, MAPE: 7.52%
+
+Prediksi Data Uji:
+      Actual  Predicted_LR
+0   0.659498      0.581466
+1   0.257603      0.269256
+2   0.430365      0.449777
+3   0.672809      0.704032
+4   0.758693      0.789210
+5   0.717764      0.657003
+6   0.881999      0.774450
+7   0.700711      0.530748
+8   0.745760      0.700431
+9   0.708337      0.734353
+10  0.495642      0.488125
+11  0.792421      0.831532
+12  0.326622      0.344249
+13  0.897016      0.872322
+14  0.710327      0.729595
+15  0.627617      0.695292
+16  0.432307      0.447139
+17  0.686452      0.661734
+18  0.786784      0.798860
+19  0.392658      0.345126
+20  0.930744      0.757188
+21  0.495642      0.454237
+22  0.365040      0.349889
+23  0.342539      0.321703
+24  0.722359      0.651442
+25  0.802795      0.827973
+26  0.795168      0.636070
+27  0.769683      0.683185
+28  0.602842      0.533705
+29  0.940692      0.854428
+30  0.716959      0.675481
+31  0.875841      0.867606
+32  0.829938      0.881793
+
+Data baru yang disiapkan untuk bulan berikutnya:
+       xt-4      xt-3      xt-2      xt-1        xt
+0  0.733825  0.714744  0.878228  0.746173  0.767145
+
+Prediksi bulan berikutnya (unnormalisasi):
+25489 pasien
+/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/base.py:450: UserWarning: X does not have valid feature names, but BaggingRegressor was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c1"># 1. Memuat data train dan test</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train_p1.csv&#39;</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test_p1.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Memisahkan fitur (X) dan target (y) untuk data latih dan uji</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>  <span class="c1"># Fitur untuk data latih</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>  <span class="c1"># Target untuk data latih</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[[</span><span class="s1">&#39;xt-4&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-3&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-2&#39;</span><span class="p">,</span> <span class="s1">&#39;xt-1&#39;</span><span class="p">]]</span>  <span class="c1"># Fitur untuk data uji</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;xt&#39;</span><span class="p">]</span>  <span class="c1"># Target untuk data uji</span>
+
+<span class="c1"># 3. Membuat model Bagging dengan Linear Regression sebagai estimator</span>
+<span class="n">base_model_lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">bagging_model_lr</span> <span class="o">=</span> <span class="n">BaggingRegressor</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">base_model_lr</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 4. Melatih model dengan data latih</span>
+<span class="n">bagging_model_lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># 5. Memprediksi data uji</span>
+<span class="n">y_pred_lr</span> <span class="o">=</span> <span class="n">bagging_model_lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 6. Evaluasi model</span>
+<span class="n">mse_lr</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_lr</span><span class="p">)</span>
+<span class="n">r2_lr</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_lr</span><span class="p">)</span>
+<span class="n">mape_lr</span> <span class="o">=</span> <span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred_lr</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># 7. Menampilkan hasil evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Linear Regression - MSE: </span><span class="si">{</span><span class="n">mse_lr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R2 Score: </span><span class="si">{</span><span class="n">r2_lr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, MAPE: </span><span class="si">{</span><span class="n">mape_lr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># 8. Menampilkan prediksi data uji</span>
+<span class="n">output_predictions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Actual&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span>
+    <span class="s1">&#39;Predicted_LR&#39;</span><span class="p">:</span> <span class="n">y_pred_lr</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi Data Uji:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output_predictions</span><span class="p">)</span>
+
+<span class="c1"># 9. Prediksi single step bulan selanjutnya</span>
+<span class="c1"># Inputan yang diberikan: xt-4, xt-3, xt-2, xt-1</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.7338254626352513</span><span class="p">,</span> <span class="mf">0.714743654565679</span><span class="p">,</span> <span class="mf">0.8782283345130953</span><span class="p">,</span> <span class="mf">0.7461725149155627</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Prediksi bulan selanjutnya menggunakan model</span>
+<span class="n">next_prediction</span> <span class="o">=</span> <span class="n">bagging_model_lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Menyiapkan data baru untuk prediksi berikutnya</span>
+<span class="n">new_row</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;xt-4&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># xt-4</span>
+    <span class="s1">&#39;xt-3&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># xt-3</span>
+    <span class="s1">&#39;xt-2&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>  <span class="c1"># xt-2</span>
+    <span class="s1">&#39;xt-1&#39;</span><span class="p">:</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span>  <span class="c1"># xt-1</span>
+    <span class="s1">&#39;xt&#39;</span><span class="p">:</span> <span class="n">next_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># Prediksi menjadi xt</span>
+<span class="p">}</span>
+
+<span class="c1"># Menampilkan data baru untuk prediksi bulan berikutnya</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data baru yang disiapkan untuk bulan berikutnya:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">new_row</span><span class="p">]))</span>
+
+<span class="c1"># Nilai minimum dan maksimum untuk unnormalisasi</span>
+<span class="n">x_min</span> <span class="o">=</span> <span class="mi">9295</span>  <span class="c1"># Contoh: nilai minimum dari data asli</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">30405</span>  <span class="c1"># Contoh: nilai maksimum dari data asli</span>
+   
+<span class="c1"># Unnormalisasi hasil prediksi</span>
+<span class="n">unnormalized_next_prediction</span> <span class="o">=</span> <span class="n">next_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">+</span> <span class="n">x_min</span>
+
+<span class="c1"># Membulatkan hasil ke bilangan bulat</span>
+<span class="n">unnormalized_next_prediction</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">unnormalized_next_prediction</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil prediksi unnormalisasi sebagai bilangan bulat</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi bulan berikutnya (unnormalisasi):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unnormalized_next_prediction</span><span class="si">}</span><span class="s2"> pasien&quot;</span><span class="p">)</span>
+
+<span class="c1"># 10. Menyimpan model yang telah dilatih ke file menggunakan pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bagging_model_lr.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">bagging_model_lr</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Model berhasil disimpan sebagai &#39;bagging_model_lr.pkl&#39;&quot;</span><span class="p">)</span>
+
+<span class="c1"># 11. Memuat model yang telah disimpan dengan pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bagging_model_lr.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+    <span class="n">loaded_model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">model_file</span><span class="p">)</span>
+
+<span class="c1"># Menggunakan model yang dimuat untuk prediksi</span>
+<span class="n">next_prediction_loaded</span> <span class="o">=</span> <span class="n">loaded_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil prediksi menggunakan model yang dimuat</span>
+<span class="n">unnormalized_next_prediction_loaded</span> <span class="o">=</span> <span class="n">next_prediction_loaded</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">+</span> <span class="n">x_min</span>
+<span class="n">unnormalized_next_prediction_loaded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">unnormalized_next_prediction_loaded</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi bulan berikutnya (unnormalisasi) menggunakan model yang dimuat:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unnormalized_next_prediction_loaded</span><span class="si">}</span><span class="s2"> pasien&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linear Regression - MSE: 0.00, R2 Score: 0.87, MAPE: 7.52%
+
+Prediksi Data Uji:
+      Actual  Predicted_LR
+0   0.659498      0.581466
+1   0.257603      0.269256
+2   0.430365      0.449777
+3   0.672809      0.704032
+4   0.758693      0.789210
+5   0.717764      0.657003
+6   0.881999      0.774450
+7   0.700711      0.530748
+8   0.745760      0.700431
+9   0.708337      0.734353
+10  0.495642      0.488125
+11  0.792421      0.831532
+12  0.326622      0.344249
+13  0.897016      0.872322
+14  0.710327      0.729595
+15  0.627617      0.695292
+16  0.432307      0.447139
+17  0.686452      0.661734
+18  0.786784      0.798860
+19  0.392658      0.345126
+20  0.930744      0.757188
+21  0.495642      0.454237
+22  0.365040      0.349889
+23  0.342539      0.321703
+24  0.722359      0.651442
+25  0.802795      0.827973
+26  0.795168      0.636070
+27  0.769683      0.683185
+28  0.602842      0.533705
+29  0.940692      0.854428
+30  0.716959      0.675481
+31  0.875841      0.867606
+32  0.829938      0.881793
+
+Data baru yang disiapkan untuk bulan berikutnya:
+       xt-4      xt-3      xt-2      xt-1        xt
+0  0.733825  0.714744  0.878228  0.746173  0.767145
+
+Prediksi bulan berikutnya (unnormalisasi):
+25489 pasien
+/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/base.py:450: UserWarning: X does not have valid feature names, but BaggingRegressor was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">80</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unnormalized_next_prediction</span><span class="si">}</span><span class="s2"> pasien&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="c1"># 10. Menyimpan model yang telah dilatih ke file menggunakan pickle</span>
+<span class="ne">---&gt; </span><span class="mi">80</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bagging_model_lr.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">bagging_model_lr</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Model berhasil disimpan sebagai &#39;bagging_model_lr.pkl&#39;&quot;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;bagging_model_lr.pkl&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nilai minimum dan maksimum untuk unnormalisasi</span>
+<span class="n">x_min</span> <span class="o">=</span> <span class="mi">9295</span>  <span class="c1"># Contoh: nilai minimum dari data asli</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">30405</span>  <span class="c1"># Contoh: nilai maksimum dari data asli</span>
+   
+<span class="c1"># Unnormalisasi hasil prediksi</span>
+<span class="n">unnormalized_next_prediction</span> <span class="o">=</span> <span class="n">next_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">+</span> <span class="n">x_min</span>
+
+<span class="c1"># Membulatkan hasil ke bilangan bulat</span>
+<span class="n">unnormalized_next_prediction</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">unnormalized_next_prediction</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil prediksi unnormalisasi sebagai bilangan bulat</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi bulan berikutnya (unnormalisasi):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unnormalized_next_prediction</span><span class="si">}</span><span class="s2"> pasien&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi bulan berikutnya (unnormalisasi):
+25489 pasien
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">dump</span>
+
+<span class="c1"># Menyimpan model ke file</span>
+<span class="n">model_filename</span> <span class="o">=</span> <span class="s1">&#39;bagging_model_p1.joblib&#39;</span>
+<span class="n">dump</span><span class="p">(</span><span class="n">bagging_model_lr</span><span class="p">,</span> <span class="n">model_filename</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model berhasil disimpan sebagai </span><span class="si">{</span><span class="n">model_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model berhasil disimpan sebagai bagging_model_p1.joblib
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span>
+
+<span class="c1"># 1. Memuat model yang disimpan</span>
+<span class="n">model_filename</span> <span class="o">=</span> <span class="s1">&#39;bagging_model_p1.joblib&#39;</span>
+<span class="n">loaded_model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">model_filename</span><span class="p">)</span>
+<span class="c1"># 8. Prediksi data baru</span>
+<span class="c1"># Contoh data baru</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.7338254626352513</span><span class="p">,</span> <span class="mf">0.714743654565679</span><span class="p">,</span> <span class="mf">0.8782283345130953</span><span class="p">,</span> <span class="mf">0.7461725149155627</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">new_prediction</span> <span class="o">=</span> <span class="n">loaded_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="c1"># 9. Unnormalisasi hasil prediksi</span>
+<span class="n">x_min</span> <span class="o">=</span> <span class="mi">9295</span>  <span class="c1"># Nilai minimum dari data asli</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">30405</span>  <span class="c1"># Nilai maksimum dari data asli</span>
+<span class="n">unnormalized_prediction</span> <span class="o">=</span> <span class="n">new_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">+</span> <span class="n">x_min</span>
+<span class="n">unnormalized_prediction</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">unnormalized_prediction</span><span class="p">)</span>  <span class="c1"># Membulatkan hasil</span>
+
+<span class="c1"># 10. Menampilkan prediksi untuk data baru</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi data baru (normalisasi):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediksi data baru (unnormalisasi):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unnormalized_prediction</span><span class="si">}</span><span class="s2"> pasien&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi data baru (normalisasi):
+0.7671
+
+Prediksi data baru (unnormalisasi):
+25489 pasien
+/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/base.py:450: UserWarning: X does not have valid feature names, but BaggingRegressor was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="evaluasi">
+<h2>5. evaluasi<a class="headerlink" href="#evaluasi" title="Link to this heading">#</a></h2>
+<p>Hasil evaluasi menunjukkan bahwa model ensemble bagging dengan regresi linier dengan jumlah estimator sebanyak 100 memiliki kinerja yang lebih baik dibandingkan dengan SVR (Support Vector Regression) yang menggunakan kernel RBF dan epsilon 0.1. Model ensemble bagging menghasilkan RMSE sebesar 0.0677 dan MAPE sebesar 7.52%, yang menandakan bahwa kesalahan prediksi model lebih kecil dan deviasi rata-rata antara nilai prediksi dan aktual lebih rendah. Sebaliknya, model SVR menghasilkan RMSE sebesar 0.0694 dan MAPE sebesar 8.64%, yang menunjukkan bahwa model ini memiliki kesalahan prediksi dan deviasi rata-rata yang sedikit lebih tinggi.</p>
+<p>Dari hasil tersebut, dapat disimpulkan bahwa ensemble bagging dengan regresi linier lebih unggul dalam memberikan prediksi yang akurat pada dataset ini.</p>
+</section>
+<section id="deploy">
+<h2>6. deploy<a class="headerlink" href="#deploy" title="Link to this heading">#</a></h2>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=d71500c2-b449-45af-bb9d-9851cba6cfbc' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Content with notebooks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="p2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analisis Bisnis untuk Memprediksi Tren Penjualan Mobil</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-bisnis">1.  Memahami Bisnis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.1. tujuan Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permasalahan-analisis-bisnis">1.2. Permasalahan Analisis bisnis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-data">2.  Memahami Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-data">2.1. Deskripsi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipe-data">2.2. Tipe Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-data">2.3 Mengambil Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data">3. Processing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">3.1 Normalisasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">3.2 sliding windows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">4. Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svr">4.1 SVR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-ensemble-bagging">4.1.  Metode ensemble bagging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-prediksi-single-step">4.3. Melakukan Prediksi Single Step</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">5. evaluasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy">6. deploy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
