@@ -32,9 +32,6 @@
 
     /* CSS untuk tabel dan scroll */
     .excel-table-container {
-      display: flex;
-      flex-direction: column; /* Memastikan elemen-elemen berada dalam satu kolom */ /* Mengatur agar konten dimulai dari atas */
-      align-items: center;
       width: 95%; /* Lebar tabel mengisi hampir seluruh layar */
       max-height: 80vh; /* Maksimum tinggi tabel agar tidak keluar dari layar */
       overflow: auto; /* Menambahkan scroll jika konten melebihi batas */
@@ -95,9 +92,11 @@
       <option value="">Pilih Sheet</option>
     </select>
 
+    <center>
     <div class="excel-table-container">
       <table id="excelTable" border="1"></table>
     </div>
+    </center>
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
