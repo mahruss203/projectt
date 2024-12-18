@@ -1112,10 +1112,56 @@ Prediksi bulan berikutnya (unnormalisasi): 91339 pasien
 </div>
 </section>
 </section>
-<section id="evaluasi">
-<h2>5. Evaluasi<a class="headerlink" href="#evaluasi" title="Link to this heading">#</a></h2>
-<p>Evaluasi dari kedua model prediksi menunjukkan perbedaan performa yang signifikan. Model ensemble bagging dengan regresi linier menghasilkan RMSE sebesar 0.0962 dan MAPE sebesar 10.96%, yang menunjukkan kesalahan prediksi yang relatif kecil dan deviasi rata-rata yang terkontrol, menjadikannya model yang lebih akurat dan dapat diandalkan untuk prediksi. Di sisi lain, model SVR (Support Vector Regression) menghasilkan RMSE sebesar 0.1092 dan MAPE sebesar 13.24%, yang sedikit lebih tinggi, menunjukkan bahwa kesalahan prediksi dan deviasi rata-rata antara nilai prediksi dan aktual lebih besar dibandingkan dengan model ensemble bagging. Secara keseluruhan, meskipun kedua model memiliki potensi untuk digunakan, ensemble bagging terbukti lebih efektif dalam menghasilkan prediksi yang lebih akurat pada dataset ini, meskipun keduanya masih memiliki ruang untuk perbaikan lebih lanjut.</p>
+<section id="view-excel">
+  <h2>View Excel File<a class="headerlink" href="#view-excel" title="Link to this heading">#</a></h2>
+  <p>Berikut adalah tampilan data dari file Excel <strong>p2_project.xlsx</strong>. Data ini dapat digunakan untuk evaluasi performa model prediksi.</p>
+  <table id="excelTable" border="1"></table>
 </section>
+
+<section id="evaluasi">
+  <h2>5. Evaluasi<a class="headerlink" href="#evaluasi" title="Link to this heading">#</a></h2>
+  <p>Sebelum melakukan evaluasi, penting untuk memastikan bahwa proses validasi model dilakukan secara konsisten, termasuk pembagian dataset menjadi data latih dan data uji yang representatif. Dalam eksperimen ini, kinerja model diukur menggunakan dua metrik utama: Root Mean Squared Error (RMSE) dan Mean Absolute Percentage Error (MAPE). RMSE digunakan untuk mengukur rata-rata kesalahan prediksi dalam satuan asli data, sementara MAPE memberikan gambaran persentase deviasi rata-rata dari nilai aktual.</p>
+  <p>Evaluasi dari kedua model prediksi menunjukkan perbedaan performa yang signifikan. Model ensemble bagging dengan regresi linier menghasilkan RMSE sebesar 0.0962 dan MAPE sebesar 10.96%, yang menunjukkan kesalahan prediksi yang relatif kecil dan deviasi rata-rata yang terkontrol, menjadikannya model yang lebih akurat dan dapat diandalkan untuk prediksi. Di sisi lain, model SVR (Support Vector Regression) menghasilkan RMSE sebesar 0.1092 dan MAPE sebesar 13.24%, yang sedikit lebih tinggi, menunjukkan bahwa kesalahan prediksi dan deviasi rata-rata antara nilai prediksi dan aktual lebih besar dibandingkan dengan model ensemble bagging. Secara keseluruhan, meskipun kedua model memiliki potensi untuk digunakan, ensemble bagging terbukti lebih efektif dalam menghasilkan prediksi yang lebih akurat pada dataset ini, meskipun keduanya masih memiliki ruang untuk perbaikan lebih lanjut.</p>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+  // Fungsi untuk membaca dan menampilkan file Excel
+  function loadExcel(fileUrl) {
+    fetch(fileUrl)
+      .then((response) => response.arrayBuffer())
+      .then((data) => {
+        // Baca file Excel
+        const workbook = XLSX.read(data, { type: "array" });
+
+        // Ambil sheet pertama
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+
+        // Konversi sheet ke JSON
+        const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+
+        // Render data ke tabel HTML
+        const table = document.getElementById("excelTable");
+        table.innerHTML = ""; // Kosongkan tabel sebelumnya
+
+        rows.forEach((row) => {
+          const tr = document.createElement("tr");
+          row.forEach((cell) => {
+            const td = document.createElement("td");
+            td.textContent = cell || ""; // Isi cell (kosong jika null)
+            tr.appendChild(td);
+          });
+          table.appendChild(tr);
+        });
+      })
+      .catch((error) => {
+        console.error("Error loading Excel file:", error);
+      });
+  }
+
+  // Panggil fungsi untuk memuat file Excel
+  loadExcel("p2_project.xlsx");
+</script>
 <section id="deploy">
 <h2>6. deploy<a class="headerlink" href="#deploy" title="Link to this heading">#</a></h2>
 <p> https://mftyhg3223-project2.hf.space/ </p>
