@@ -6,8 +6,14 @@
   <title>View Excel File</title>
   
   <style>
-    /* CSS Internal untuk mengatur lebar tabel dan scroll */
-    /* Container untuk tabel dengan scroll */
+    /* CSS untuk latar belakang hitam dan teks terang */
+    body {
+      background-color: #000; /* Latar belakang hitam */
+      color: #fff; /* Teks berwarna putih untuk kontras */
+      font-family: Arial, sans-serif; /* Menambahkan font yang lebih cocok dengan latar belakang hitam */
+    }
+
+    /* CSS untuk tabel dan scroll */
     .excel-table-container {
       width: 50%; /* Setengah lebar layar laptop */
       height: 300px; /* Tinggi yang diinginkan untuk area scroll */
@@ -16,13 +22,15 @@
       border: 1px solid #ddd;
       padding: 10px;
       margin: 0 auto; /* Agar container berada di tengah halaman */
+      background-color: #222; /* Latar belakang container tabel */
     }
 
-    /* Tampilan tabel agar lebih kecil */
+    /* Tampilan tabel agar lebih kecil dan dengan warna kontras */
     table {
       width: 100%;
       font-size: 12px; /* Menurunkan ukuran font agar lebih kecil */
       border-collapse: collapse;
+      color: #fff; /* Teks tabel berwarna putih */
     }
 
     table th, table td {
@@ -32,13 +40,25 @@
     }
 
     h1, h2 {
-      color: #333;
+      color: #fff; /* Judul berwarna putih */
       font-size: 16px; /* Ukuran font heading */
     }
 
     p {
       font-size: 14px;
       line-height: 1.5;
+    }
+
+    select {
+      background-color: #333; /* Latar belakang dropdown */
+      color: #fff; /* Teks dropdown putih */
+      border: 1px solid #ddd; /* Border dropdown */
+      padding: 5px;
+    }
+
+    option {
+      background-color: #333; /* Latar belakang option */
+      color: #fff; /* Teks option putih */
     }
   </style>
 
@@ -58,13 +78,6 @@
       <table id="excelTable" border="1"></table>
     </div>
   </section>
-
-  <section id="evaluasi">
-    <h2>5. Evaluasi<a class="headerlink" href="#evaluasi" title="Link to this heading">#</a></h2>
-    <p>Sebelum melakukan evaluasi, penting untuk memastikan bahwa proses validasi model dilakukan secara konsisten, termasuk pembagian dataset menjadi data latih dan data uji yang representatif. Dalam eksperimen ini, kinerja model diukur menggunakan dua metrik utama: Root Mean Squared Error (RMSE) dan Mean Absolute Percentage Error (MAPE). RMSE digunakan untuk mengukur rata-rata kesalahan prediksi dalam satuan asli data, sementara MAPE memberikan gambaran persentase deviasi rata-rata dari nilai aktual.</p>
-    <p>Evaluasi dari kedua model prediksi menunjukkan perbedaan performa yang signifikan. Model ensemble bagging dengan regresi linier menghasilkan RMSE sebesar 0.0962 dan MAPE sebesar 10.96%, yang menunjukkan kesalahan prediksi yang relatif kecil dan deviasi rata-rata yang terkontrol, menjadikannya model yang lebih akurat dan dapat diandalkan untuk prediksi. Di sisi lain, model SVR (Support Vector Regression) menghasilkan RMSE sebesar 0.1092 dan MAPE sebesar 13.24%, yang sedikit lebih tinggi, menunjukkan bahwa kesalahan prediksi dan deviasi rata-rata antara nilai prediksi dan aktual lebih besar dibandingkan dengan model ensemble bagging. Secara keseluruhan, meskipun kedua model memiliki potensi untuk digunakan, ensemble bagging terbukti lebih efektif dalam menghasilkan prediksi yang lebih akurat pada dataset ini, meskipun keduanya masih memiliki ruang untuk perbaikan lebih lanjut.</p>
-  </section>
-
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
   <script>
     // Variabel untuk menyimpan workbook
@@ -134,7 +147,7 @@
     }
 
     // Panggil fungsi untuk memuat file Excel (periksa lokasi file)
-    loadExcel("p2_project.xlsx");
+    loadExcel("p2_manual.xlsx");
   </script>
 </body>
 </html>
