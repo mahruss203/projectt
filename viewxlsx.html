@@ -32,8 +32,8 @@
 
     /* CSS untuk tabel dan scroll */
     .excel-table-container {
-      width: 80%; /* Lebar tabel lebih besar agar mengisi ruang */
-      height: 70vh; /* Menentukan tinggi tabel menggunakan view height */
+      width: 95%; /* Lebar tabel mengisi hampir seluruh layar */
+      max-height: 80vh; /* Maksimum tinggi tabel agar tidak keluar dari layar */
       overflow: auto; /* Menambahkan scroll jika konten melebihi batas */
       margin-top: 20px;
       border: 1px solid #ddd;
@@ -43,14 +43,14 @@
 
     /* Tampilan tabel agar lebih kecil dan dengan warna kontras */
     table {
-      width: 100%;
-      font-size: 12px; /* Menurunkan ukuran font agar lebih kecil */
+      width: 100%; /* Tabel mengisi penuh lebar container */
+      font-size: 14px; /* Ukuran font sedikit lebih besar agar mudah dibaca */
       border-collapse: collapse;
       color: #fff; /* Teks tabel berwarna putih */
     }
 
     table th, table td {
-      padding: 5px; /* Menurunkan padding untuk ukuran tabel lebih kecil */
+      padding: 8px; /* Padding lebih besar untuk tampilan yang lebih nyaman */
       border: 1px solid #ddd;
       text-align: left;
     }
@@ -69,7 +69,8 @@
       background-color: #333; /* Latar belakang dropdown */
       color: #fff; /* Teks dropdown putih */
       border: 1px solid #ddd; /* Border dropdown */
-      padding: 5px;
+      padding: 10px;
+      margin: 10px;
     }
 
     option {
