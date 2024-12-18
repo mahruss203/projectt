@@ -31,15 +31,16 @@
     }
 
     /* CSS untuk tabel dan scroll */
+    /* Memusatkan div excel-table-container */
     .excel-table-container {
-      width: 95%; /* Lebar tabel mengisi hampir seluruh layar */
-      max-height: 80vh; /* Maksimum tinggi tabel agar tidak keluar dari layar */
-      overflow: auto; /* Menambahkan scroll jika konten melebihi batas */
-      margin-top: 20px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      background-color: #222; /* Latar belakang container tabel */
+      display: flex;
+      justify-content: center; /* Memusatkan secara horizontal */
+      align-items: center; /* Memusatkan secara vertikal jika ada cukup ruang */
+      width: 100%; /* Pastikan lebar container sesuai dengan layar */
+      height: 100%; /* Pastikan tinggi container sesuai dengan layar */
+      overflow: auto;
     }
+
 
     /* Tampilan tabel agar lebih kecil dan dengan warna kontras */
     table {
