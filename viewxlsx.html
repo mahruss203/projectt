@@ -7,21 +7,37 @@
   
   <style>
     /* CSS untuk latar belakang hitam dan teks terang */
+    html, body {
+      height: 100%; /* Mengatur tinggi HTML dan body untuk mengisi layar penuh */
+      margin: 0; /* Menghilangkan margin default */
+    }
+
     body {
       background-color: #000; /* Latar belakang hitam */
       color: #fff; /* Teks berwarna putih untuk kontras */
       font-family: Arial, sans-serif; /* Menambahkan font yang lebih cocok dengan latar belakang hitam */
+      display: flex;
+      flex-direction: column; /* Memastikan elemen-elemen berada dalam satu kolom */
+      justify-content: flex-start; /* Mengatur agar konten dimulai dari atas */
+      align-items: center; /* Menyusun elemen di tengah secara horizontal */
+      overflow: hidden; /* Menghilangkan scrollbar dari body */
+    }
+
+    /* CSS untuk bagian excel */
+    #view-excel {
+      width: 100%; /* Lebar penuh */
+      padding: 20px;
+      text-align: center;
     }
 
     /* CSS untuk tabel dan scroll */
     .excel-table-container {
-      width: 50%; /* Setengah lebar layar laptop */
-      height: 300px; /* Tinggi yang diinginkan untuk area scroll */
+      width: 80%; /* Lebar tabel lebih besar agar mengisi ruang */
+      height: 70vh; /* Menentukan tinggi tabel menggunakan view height */
       overflow: auto; /* Menambahkan scroll jika konten melebihi batas */
       margin-top: 20px;
       border: 1px solid #ddd;
       padding: 10px;
-      margin: 0 auto; /* Agar container berada di tengah halaman */
       background-color: #222; /* Latar belakang container tabel */
     }
 
@@ -78,6 +94,7 @@
       <table id="excelTable" border="1"></table>
     </div>
   </section>
+
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
   <script>
     // Variabel untuk menyimpan workbook
